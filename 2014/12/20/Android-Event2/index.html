@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>对Android  ViewGroup ViewChildGroup View的事件的分发测试 | Wedcel&#39;s blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android 事件分发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对Android  ViewGroup ViewChildGroup View的事件的分发测试">
+<meta property="og:url" content="http://wedcel.com/2014/12/20/Android-Event2/index.html">
+<meta property="og:site_name" content="Wedcel's blogs">
+<meta property="og:description" content="Android 事件分发">
+<meta property="og:updated_time" content="2015-03-04T13:36:00.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对Android  ViewGroup ViewChildGroup View的事件的分发测试">
+<meta name="twitter:description" content="Android 事件分发">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wedcel</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注移动互联网最新技术</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">博客主页</a></li>
+				        
+							<li><a href="/archives">博文列表</a></li>
+				        
+							<li><a href="/introduce">个人简介</a></li>
+				        
+							<li><a href="/resource">资源推荐</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+					        
+								<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NDK/" style="font-size: 15px;">NDK</a> <a href="/tags/Studio/" style="font-size: 10px;">Studio</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/gradle/" style="font-size: 15px;">gradle</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wedcel</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+				<hgroup>
+				  <h1 class="header-author">Wedcel</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">关注移动互联网最新技术</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">博客主页</a></li>
+		        
+					<li><a href="/archives">博文列表</a></li>
+		        
+					<li><a href="/introduce">个人简介</a></li>
+		        
+					<li><a href="/resource">资源推荐</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-Event2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/20/Android-Event2/" class="article-date">
+  	<time datetime="2014-12-20T04:00:00.000Z" itemprop="datePublished">12月 20 2014</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对Android  ViewGroup ViewChildGroup View的事件的分发测试
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/事件分发/">事件分发</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>###对事件的分发支持如下：</p>
+<p>######这里的View是指textview类似的不能有子View的View，不是最大的父类View.<br>重写textview的时候  可以继承到dispatchTouchEvent  这是从View里面拿到的 </p>
+<p>textview类似的view里面没有这个方法 也就不会处理 但你继承了  就会处理</p>
+<p>ACTION_CANCEL的执行 只是在你滑动超过了这个控件之外的时候 才会触发</p>
+<p>每个轮流执行下去的都会执行ACTION_DOWN  但是只有最后处理事件的地方或者返回true的地方才会执行move和up 事件</p>
+<p>所谓消费了此事件就是down move up都执行了  其他的 都只会执行一个down事件<table></table></p>
+<p><tbody></tbody></p>
+<p><tr><td></td><td>ViewGroup</td><td>ViewChildGroup</td><td>View</td></tr></p>
+<p><tr><td>dispatchTouchEvent </td><td>Yes</td><td>Yes</td><td>Yes</td></tr></p>
+<p><tr><td>onInterceptTouchEvent </td><td>Yes</td><td>Yes</td><td>No</td></tr></p>
+<p><tr><td>onTouchEvent </td><td>Yes</td><td>Yes</td><td>Yes</td></tr><br><br><br><a id="more"></a></p>
+<p>顺序是ViewGroup——&gt;ViewChildGroup——&gt;View</p>
+<p>####如果都返回Super默认值 执行的逻辑是 执行了所有的down 但不会执行move和up方法</p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####View dispatchTouchEvent 返回true  其他都默认</p>
+<p>####所有的onTouchEvent 都不会执行 其余的全部执行</p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>View dispatchTouchEvent ACTION_MOVE</p>
+<p>########……执行N次move</p>
+<p>ViewGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_UP</p>
+<p>View dispatchTouchEvent ACTION_UP</p>
+<p>####View dispatchTouchEvent 返回false 其他都默认</p>
+<p>####这时候  view的onTouchEvent 不会执行 其余的down都会执行 move和up都不执行</p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####View onTouchEvent 返回true 其他都默认</p>
+<h4 id="ViewChildGroup-和ViewGroup的onTouchEvent不会执行-别的全部动作都执行"><a href="#ViewChildGroup-和ViewGroup的onTouchEvent不会执行-别的全部动作都执行" class="headerlink" title="ViewChildGroup 和ViewGroup的onTouchEvent不会执行 别的全部动作都执行"></a>ViewChildGroup 和ViewGroup的onTouchEvent不会执行 别的全部动作都执行</h4><p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>View dispatchTouchEvent ACTION_MOVE</p>
+<p>View onTouchEvent ACTION_MOVE</p>
+<p>######……执行N次move</p>
+<p>ViewGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_UP</p>
+<p>View dispatchTouchEvent ACTION_UP</p>
+<p>View onTouchEvent ACTION_UP</p>
+<p>####View onTouchEvent 返回false 其他都默认  所有的down都会执行</p>
+<p>####但不会执行move和up   </p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####ViewChildGroup dispatchTouchEvent 返回true  其他都默认</p>
+<p>####这时候执行了ViewGroup和ViewChildGroup的dispatchTouchEvent的所有方法<br>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>######……执行N次</p>
+<p>ViewGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_UP</p>
+<h4 id="ViewChildGroup-dispatchTouchEvent-返回false-其他都默认"><a href="#ViewChildGroup-dispatchTouchEvent-返回false-其他都默认" class="headerlink" title="ViewChildGroup dispatchTouchEvent 返回false  其他都默认"></a>ViewChildGroup dispatchTouchEvent 返回false  其他都默认</h4><h4 id="这时候-执行了ViewGroup和ViewChildGroup的dispatchTouchEvent"><a href="#这时候-执行了ViewGroup和ViewChildGroup的dispatchTouchEvent" class="headerlink" title="这时候 执行了ViewGroup和ViewChildGroup的dispatchTouchEvent"></a>这时候 执行了ViewGroup和ViewChildGroup的dispatchTouchEvent</h4><h4 id="的ACTION-DOWN方法-同时执行了ViewGroup的onTouchEvent方法-move和up不执行"><a href="#的ACTION-DOWN方法-同时执行了ViewGroup的onTouchEvent方法-move和up不执行" class="headerlink" title="的ACTION_DOWN方法 同时执行了ViewGroup的onTouchEvent方法 move和up不执行"></a>的ACTION_DOWN方法 同时执行了ViewGroup的onTouchEvent方法 move和up不执行</h4><h4 id="猜测之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底"><a href="#猜测之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底" class="headerlink" title="猜测之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底"></a>猜测之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底</h4><p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####ViewChildGroup onInterceptTouchEvent 返回true  其他都默认</p>
+<p>####这时候 执行了ViewGroup和ViewChildGroup的所有ACTION_DOWN方法 move和up不执行</p>
+<p>####猜测 之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底<br>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####ViewChildGroup onInterceptTouchEvent 返回false  其他都默认</p>
+<p>####这时候 执行了所有ACTION_DOWN方法 move和up不执行<br>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent ACTION_DOWN</p>
+<p>####ViewChildGroup TouchEvent 返回true  其他都默认</p>
+<p>####这时候 执行了除了ViewGroup onTouchEvent外的 所有ACTION_DOWN方法  </p>
+<p>####之后执行ViewGroup的dispatchTouchEvent  onInterceptTouchEvent</p>
+<p>####ViewChildGroup的dispatchTouchEvent和onTouchEvent方法的move和up方法</p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewChildGroup onTouchEvent  ACTION_MOVE</p>
+<p>######……执行N次</p>
+<p>ViewGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_UP</p>
+<p>ViewChildGroup onTouchEvent  ACTION_UP</p>
+<p>####ViewChildGroup TouchEvent 返回false  其他都默认</p>
+<p>####执行了所有down方法 不会执行move和up方法   </p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent  ACTION_DOWN</p>
+<p>####ViewGroup dispatchTouchEvent 返回true  其他都默认</p>
+<p>####ViewGroup的dispatchTouchEvent执行了所有的down move up操作</p>
+<p>ViewGroup dispatchTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent  ACTION_MOVE</p>
+<p>######……执行N次</p>
+<p>ViewGroup dispatchTouchEvent  ACTION_UP</p>
+<p>####ViewGroup dispatchTouchEvent 返回false  其他都默认</p>
+<p>####ViewGroup的dispatchTouchEvent执行了down操作 不会有up和move操作 其他事件全部屏蔽</p>
+<p>ViewGroup dispatchTouchEvent  ACTION_DOWN</p>
+<p>####ViewGroup onInterceptTouchEvent 返回true 其他都默认</p>
+<p>####ViewGroup消费了所有的down事件  都会执行 但是move和up不会执行</p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent  ACTION_DOWN</p>
+<p>####ViewGroup onInterceptTouchEvent 返回false 其他都默认</p>
+<p>####执行了所有down方法 不会执行move和up方法  </p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent  ACTION_DOWN</p>
+<p>####ViewGroup onTouchEvent 返回true 其他都默认</p>
+<p>####执行了所有down方法 最后由ViewGroup的dispatchTouchEvent和onTouchEvent消费了move和up  </p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
+<p>ViewGroup onTouchEvent  ACTION_MOVE</p>
+<p>######……执行N次</p>
+<p>ViewGroup dispatchTouchEvent ACTION_IP</p>
+<p>ViewGroup onTouchEvent  ACTION_MOVE</p>
+<p>####ViewGroup onTouchEvent 返回false 其他都默认</p>
+<p>####执行了所有down方法 不会执行move和up方法    </p>
+<p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup dispatchTouchEvent ACTION_DOWN</p>
+<p>ViewChildGroup onInterceptTouchEvent  ACTION_DOWN</p>
+<p>View dispatchTouchEvent ACTION_DOWN</p>
+<p>View onTouchEvent  ACTION_DOWN</p>
+<p>ViewChildGroup onTouchEvent  ACTION_DOWN</p>
+<p>ViewGroup onTouchEvent  ACTION_DOWN</p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/21/Android-Event/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          对Android Activity ViewGroup View的事件的分发测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/28/GradleBuild-MutiApk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android gradle 批量渠道打包</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android-Event2" data-title="对Android  ViewGroup ViewChildGroup View的事件的分发测试" data-url="http://wedcel.com/2014/12/20/Android-Event2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wedcel"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Wedcel
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

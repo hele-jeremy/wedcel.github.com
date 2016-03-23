@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android DNS Local Cache的学习  | Wedcel&#39;s blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android DNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android DNS Local Cache的学习 ">
+<meta property="og:url" content="http://wedcel.com/2016/01/03/AndroidDNSCacheStudy/index.html">
+<meta property="og:site_name" content="Wedcel's blogs">
+<meta property="og:description" content="Android DNS">
+<meta property="og:updated_time" content="2016-03-23T13:30:23.230Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android DNS Local Cache的学习 ">
+<meta name="twitter:description" content="Android DNS">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wedcel</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注移动互联网最新技术</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">博客主页</a></li>
+				        
+							<li><a href="/archives">博文列表</a></li>
+				        
+							<li><a href="/introduce">个人简介</a></li>
+				        
+							<li><a href="/resource">资源推荐</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+					        
+								<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NDK/" style="font-size: 15px;">NDK</a> <a href="/tags/Studio/" style="font-size: 10px;">Studio</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/gradle/" style="font-size: 15px;">gradle</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wedcel</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+				<hgroup>
+				  <h1 class="header-author">Wedcel</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">关注移动互联网最新技术</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">博客主页</a></li>
+		        
+					<li><a href="/archives">博文列表</a></li>
+		        
+					<li><a href="/introduce">个人简介</a></li>
+		        
+					<li><a href="/resource">资源推荐</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-AndroidDNSCacheStudy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/03/AndroidDNSCacheStudy/" class="article-date">
+  	<time datetime="2016-01-03T04:50:00.000Z" itemprop="datePublished">1月 3 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android DNS Local Cache的学习 
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/DNS/">DNS</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>最近在学习DNS加速，所以就查了下Android本地DNS的相关知识。</p>
+<p>Android 官网有这么一句话<br><a href="http://developer.android.com/reference/java/net/InetAddress.html" target="_blank" rel="external">点击这里查看</a></p>
+<p>####DNS caching</p>
+<blockquote>
+<p>In Android 4.0 (Ice Cream Sandwich) and earlier, DNS caching was performed both by InetAddress and by the C library, which meant that DNS TTLs could not be honored correctly. In later releases, caching is done solely by the C library and DNS TTLs are honored.</p>
+</blockquote>
+<p>这句话里面的TTLS是cache过期时间，这句话说明在android4.0和早期版本里面，设置DNS的cache  ttls并不会起效，我们只能在之后的版本里设置TTL。</p>
+<a id="more"></a>
+<p>#####根据JAVA的API来看</p>
+<p>networkaddress.cache.ttl<br>这个属性可以控制DNS Cache<br>并且以ews.500.com来测试来看<br>如果缓存10S<br>第一次获取到的间隔是20毫秒<br>如果10S内再获取 一般是0<br>110S外获取 还是20毫秒左右<br>说明起效</p>
+<p>networkaddress.cache.negative.ttl</p>
+<p>这个属性是控制如果查询不的DNS  失效的域名缓存时间 </p>
+<p>测试结果  默认可以得到是10S  可以设置 并且成功  说明起效</p>
+<p>#####但是在Android上 Android5.0为例<br>这两个属性并不起效</p>
+<p>以上两个结果  这个并没有什么特别明显的效果</p>
+<p>并且得到的值都是null  设置后时间间隔也并不起效</p>
+<p>翻看源码</p>
+<p>以Android 4.4.2为例：<br>在java.net.AddressCache里面对Address进行了缓存<br>并且存取方式也不一样</p>
+<blockquote>
+<p>// The TTL for the Java-level cache is short, just 2s.</p>
+<p> private static final long TTL_NANOS = 2 * 1000000000L;</p>
+</blockquote>
+<p>从上面代码得出。这里默认的TTL是2S</p>
+<p>####并且 这里的Cache是无法改变的  从这里可以得出 无法改变系统缓存时间来达到目的</p>
+<p>之后 对比ApacheHttpClient 发现  Android其实阉割了原版的HttpClient  去掉了之前的部分功能  使其更能适应移动设备的网络请求<br>但同时其中一些类是新版本httpcore已经抛弃了的</p>
+<p>其实是Apache的HttpClient和HttpCore部分有用代码的合集放入进去的</p>
+<p>研究源码发现  httpclient4.3版本可以自定义DNS但是android版本的httpclient4.0的 所以如果想要自定义DNS需要用新版本的httpclient<br>4.3版本可以重写DnsResolver来使得系统使用自定义配置，但同时你要重写HttpClientConnectionManager </p>
+<p>为了避免网络请求出现问题  这种方式暂时弃用  暂时采用现有比较成熟的请求方式</p>
+<p>######在这个前提下</p>
+<p>最终采用的方式是  在Http请求头里面加入Host参数  这个参数是自己的域名 并且直接用IP去访问 如果不加入Host 直接用IP访问 会被Forbidden<br>但是采用头部加入Host的方式可行</p>
+<p>######这种方式 推测风险是这样的<br>可能会出现网络切换等  使得DNS变化  网络请求无效</p>
+<p>以ews.500.com为例</p>
+<p>切换代理为美国IP  拿到的DNS为61.140.14.19</p>
+<p>本地IP  拿到的DNS为 113.105.144.42</p>
+<p>经测试两个IP在有HOST的情况下都可以直接访问 但在本地IP访问美国DNS的时候 速度可能不是特别快 但速度依旧快于直接访问域名  除非出现DNS缓存服务挂了的情况下 否则一般不会出现问题</p>
+<p>测试数据如下：</p>
+<p>######以50次测试为例：  </p>
+<p>域名的情况：平均为85ms左右 并且有四次左右的链接超时（可能跟本地网速有关 忽略）</p>
+<p>本地访问本地拿到的DNS  平局为35m左右</p>
+<p>本地访问拿到的美国DNS  平均为50ms左右</p>
+<p>###测试证明：采用Host头的方式 可行，并且本地采用这样的策略</p>
+<p>每次网络请求前，如果本地没有缓存DNS，先去请求DNS</p>
+<pre><code>InetAddress.getAllByName(&quot;ews.500.com&quot;);
+</code></pre><p>如果本地已经缓存了DNS就使用。</p>
+<p>当检测到网络切换的情况下，清空本地缓存DNS，在下次请求时候重新获取</p>
+<p>并且根据用户使用习惯，暂定在的时候10分钟清空一次本地缓存的DNS</p>
+<p>以便能及时拿到最优的DNS</p>
+<p>如果出现超时等网络异常 立马清空DNS缓存</p>
+<p>##Tips：<br>       记得：一定要异步去请求DNS  因为有些情况下很慢   我测试的最长是50多s 而且没异常捕捉<br>    还要记得  拿到后先验证下是否通  否则3g wap方式可能会不通  证明DNS不可用</p>
+<p>##Warning：<br>    这里只是对本地cache的一些查询，主要是为了做DNS加速时候用的，getAllByName得到的DNS IP只是本地的 不能拿来加速 ，稍后会讲一下DNS加速的方案</p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/23/AndroidStudioInstantRun/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android Studio Instant Run
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/05/AndroidNDKGetErrorMsg/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android NDK Get Error Message</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="AndroidDNSCacheStudy" data-title="Android DNS Local Cache的学习 " data-url="http://wedcel.com/2016/01/03/AndroidDNSCacheStudy/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wedcel"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Wedcel
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

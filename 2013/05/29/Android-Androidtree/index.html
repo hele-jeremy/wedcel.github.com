@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title> Android可展开树  | Wedcel&#39;s blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android可展开树">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" Android可展开树 ">
+<meta property="og:url" content="http://wedcel.com/2013/05/29/Android-Androidtree/index.html">
+<meta property="og:site_name" content="Wedcel's blogs">
+<meta property="og:description" content="Android可展开树">
+<meta property="og:image" content="http://wedcel.com/../../../../..//images/androidTree.png">
+<meta property="og:updated_time" content="2013-11-04T09:04:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" Android可展开树 ">
+<meta name="twitter:description" content="Android可展开树">
+<meta name="twitter:image" content="http://wedcel.com/../../../../..//images/androidTree.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wedcel</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注移动互联网最新技术</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">博客主页</a></li>
+				        
+							<li><a href="/archives">博文列表</a></li>
+				        
+							<li><a href="/introduce">个人简介</a></li>
+				        
+							<li><a href="/resource">资源推荐</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+					        
+								<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NDK/" style="font-size: 15px;">NDK</a> <a href="/tags/Studio/" style="font-size: 10px;">Studio</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/gradle/" style="font-size: 15px;">gradle</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wedcel</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+				<hgroup>
+				  <h1 class="header-author">Wedcel</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">关注移动互联网最新技术</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">博客主页</a></li>
+		        
+					<li><a href="/archives">博文列表</a></li>
+		        
+					<li><a href="/introduce">个人简介</a></li>
+		        
+					<li><a href="/resource">资源推荐</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-Androidtree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/05/29/Android-Androidtree/" class="article-date">
+  	<time datetime="2013-05-29T01:39:00.000Z" itemprop="datePublished">5月 29 2013</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+       Android可展开树 
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/listview/">listview</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>最近项目有个需求,需要分不同等级的不同信息在手机上显示,要分等级展示,比如第一层显示第一等级的信息,第二层显示第一层从属的信息,如果有子数据,则可以提示展开,如果没有,则不用提示可以展开,并且不能站看的数据点击后将数据显示出来。</p>
+<p>效果如下：<br><a id="more"></a><br><img src="../../../../..//images/androidTree.png" alt="效果图"></p>
+<p>我想到的第一个方法是 expandListView,但是后来用了用，效果并不是很好，最后发现了一个用listview直接OK的方法。</p>
+<p>就是用listview中的adapter中显示的数据用实体类表示，这个实体类是比较要技巧的，我是这样定义的：</p>
+<pre><code>private String gridId;//id
+private String gridName;//name要显示的数据
+private String departId;//这个是自己用的
+private boolean hasParent;//是否有父节点
+private boolean hasChild;//是否有子节点
+private String parent;//父节点ID
+private int level;//第几层
+private boolean expanded;//是否已经展开
+</code></pre><p>先是你要用的ID，NAME，然后就是列表显示用的，是否有父节点、是否有子节点、父节点ID、第几层的、是否已经展开（这个用来判断展开与否的图片显示）。</p>
+<p>下面是自己定义的adapter，里面显示的信息没什么，重要的是根据状态判断显示图片。</p>
+<pre><code>private class GirdTreeAdapter extends ArrayAdapter&lt;SyncGridBean&gt; {
+
+    private LayoutInflater mInflater;
+    private List&lt;SyncGridBean&gt; mfilelist;
+    private Bitmap mIconCollapse;
+    private Bitmap mIconExpand;
+
+    public GirdTreeAdapter(Context context, int textViewResourceId,
+            List&lt;SyncGridBean&gt; objects) {
+        super(context, textViewResourceId, objects);
+        mInflater = LayoutInflater.from(context);
+        mfilelist = objects;
+        mIconCollapse = BitmapFactory.decodeResource(
+                context.getResources(), R.drawable.gird_item_collapse);
+        mIconExpand = BitmapFactory.decodeResource(context.getResources(),
+                R.drawable.gird_item_expand);
+
+    }
+    public int getCount() {
+        return mfilelist.size();
+    }
+
+    public SyncGridBean getItem(int position) {
+        return mfilelist.get(position);
+    }
+
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder holder;
+        /*if (convertView == null) {*/
+            convertView = mInflater.inflate(R.layout.item_girdtree, null);
+            holder = new ViewHolder();
+            holder.text = (TextView) convertView.findViewById(R.id.text);
+            holder.icon = (ImageView) convertView.findViewById(R.id.icon);
+            convertView.setTag(holder);
+        /*} else {
+            holder = (ViewHolder) convertView.getTag();
+        }*/
+
+        int level = mfilelist.get(position).getLevel();
+         holder.icon.setPadding(25 * (level + 1), holder.icon
+                .getPaddingTop(), 0, holder.icon.getPaddingBottom());
+        holder.text.setText(mfilelist.get(position).getGridName());
+        if (mfilelist.get(position).isHasChild()
+                &amp;&amp; (!mfilelist.get(position).isExpanded())) {
+            holder.icon.setImageBitmap(mIconCollapse);
+        } else if (mfilelist.get(position).isHasChild()
+                &amp;&amp; (mfilelist.get(position).isExpanded())) {
+            holder.icon.setImageBitmap(mIconExpand);
+        } else if (!mfilelist.get(position).isHasChild()){
+            holder.icon.setImageBitmap(mIconCollapse);
+            holder.icon.setVisibility(View.INVISIBLE);
+        }
+        return convertView;
+    }
+
+    class ViewHolder {
+        TextView text;
+        ImageView icon;
+
+    }
+}
+</code></pre><p>重点来了，重点就在于你点击的时候 判断的这个信息</p>
+<pre><code>@Override
+protected void onListItemClick(ListView l, View v, int position, long id) {
+    super.onListItemClick(l, v, position, id);
+    if (!mGirdParents.get(position).isHasChild()) {
+
+        //如果没有子节点了  可以处理你自己的逻辑
+        return;
+    }
+
+    //如果没有展开，那就展开
+    if (mGirdParents.get(position).isExpanded()) {
+        mGirdParents.get(position).setExpanded(false);
+        SyncGridBean pdfOutlineElement=mGirdParents.get(position);
+        ArrayList&lt;SyncGridBean&gt; temp=new ArrayList&lt;SyncGridBean&gt;();
+
+        for (int i = position+1; i &lt; mGirdParents.size(); i++) {
+            if (pdfOutlineElement.getLevel()&gt;=mGirdParents.get(i).getLevel()) {
+                break;
+            }
+            temp.add(mGirdParents.get(i));
+        }
+
+        mGirdParents.removeAll(temp);
+
+        girdTreeAdapter.notifyDataSetChanged();
+
+
+    } else {//如果已经展开，那就缩回
+        mGirdParents.get(position).setExpanded(true);
+        int level = mGirdParents.get(position).getLevel();
+        int nextLevel = level + 1;
+        for (SyncGridBean pdfOutlineElement : mGirdChilds) {
+            int j=1;
+            if (pdfOutlineElement.getParent()==mGirdParents.get(position).getGridId()) {
+                pdfOutlineElement.setLevel(nextLevel);
+                pdfOutlineElement.setExpanded(false);
+                mGirdParents.add(position+j, pdfOutlineElement);
+                j++;
+            }            
+        }
+        girdTreeAdapter.notifyDataSetChanged();
+
+    }
+}
+</code></pre><p>这个做的是点击整个item的话是这样的，你也可以单独点击那个图片来展开或者缩回，点击文字显示，这些在这里都是可以实现的</p>
+<p>项目地址:<a href="https://github.com/wedcel/TreeTest" target="_blank" rel="external">https://github.com/wedcel/TreeTest</a></p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/06/28/Android-AnsyTask/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+           Android AnsyTask不执行dobackground
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/05/21/Android-Achartengine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> achartengine使用说明 </div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android-Androidtree" data-title=" Android可展开树 " data-url="http://wedcel.com/2013/05/29/Android-Androidtree/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wedcel"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Wedcel
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

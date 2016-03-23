@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title> achartengine使用说明  | Wedcel&#39;s blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="achartengine使用说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" achartengine使用说明 ">
+<meta property="og:url" content="http://wedcel.com/2013/05/21/Android-Achartengine/index.html">
+<meta property="og:site_name" content="Wedcel's blogs">
+<meta property="og:description" content="achartengine使用说明">
+<meta property="og:image" content="http://wedcel.com/../../../../../images/zhu.png">
+<meta property="og:image" content="http://wedcel.com/../../../../../images/zhexian.png">
+<meta property="og:image" content="http://wedcel.com/../../../../../images/bing.png">
+<meta property="og:updated_time" content="2013-11-04T09:03:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" achartengine使用说明 ">
+<meta name="twitter:description" content="achartengine使用说明">
+<meta name="twitter:image" content="http://wedcel.com/../../../../../images/zhu.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wedcel</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">关注移动互联网最新技术</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">博客主页</a></li>
+				        
+							<li><a href="/archives">博文列表</a></li>
+				        
+							<li><a href="/introduce">个人简介</a></li>
+				        
+							<li><a href="/resource">资源推荐</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+					        
+								<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NDK/" style="font-size: 15px;">NDK</a> <a href="/tags/Studio/" style="font-size: 10px;">Studio</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/gradle/" style="font-size: 15px;">gradle</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wedcel</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars3.githubusercontent.com/u/3982317?v=3&amp;s=460">
+				<hgroup>
+				  <h1 class="header-author">Wedcel</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">关注移动互联网最新技术</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">博客主页</a></li>
+		        
+					<li><a href="/archives">博文列表</a></li>
+		        
+					<li><a href="/introduce">个人简介</a></li>
+		        
+					<li><a href="/resource">资源推荐</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/wedcel" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/wedcel" title="weibo">weibo</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/in/wedcel" title="linkedin">linkedin</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/wedcel" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-Achartengine" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/05/21/Android-Achartengine/" class="article-date">
+  	<time datetime="2013-05-21T05:58:00.000Z" itemprop="datePublished">5月 21 2013</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+       achartengine使用说明 
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/achartengine/">achartengine</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>android上面画图表的工具，的确不多，再加上手机屏幕显示，画图表的确不是特别好的占线方法，不过因为一些原因，你还是必须得在手机上画一些图，必然折线图、饼状图、柱状图，我们项目中的需求就用到了这些，目前我用的最好的是achartengine这个jar包。很多人也称之为ACE。</p>
+<p>三种图的效果分别如下所示（涉及数据等原因，效果图模糊了）：<br><a id="more"></a></p>
+<p><img src="../../../../../images/zhu.png" alt="效果图">(柱状图)</p>
+<p><img src="../../../../../images/zhexian.png" alt="效果图">（折线图）</p>
+<p><img src="../../../../../images/bing.png" alt="效果图">（饼状图）</p>
+<p>首先说先ACE的优点，ACE可以很方便的划出柱状图，饼状图和折线图，如上面所示，可以设置X轴Y轴坐标，并且可以在图像上显示数据，在图像下面显示你每块颜色所代表的数据。并且因为手机的原因也提供了可以放大缩小返回原比例的按钮。</p>
+<p>同样，其也还有比较大的缺点，比如，如果你想要显示动态的图，这个实现不了（暂时我没实现，如果你实现了，请告诉我方法），除非你每变化一下重新获得一张图，还有这个图像上你多点触控放大缩小很迟钝，并不太方便。还有就是如果你只显示一组数据，这个控件没法给一组数据放大，会显示很小一片数据，很不好看。但是饼状图和折线图还是不错的。</p>
+<p>OK，接下来说说用法，ACE中的图的用法分两步，第一步是你先组装你锁需要的图的列样式，就是有多少列，每一列里有多少组数据，其实就是Y轴有多少组数据，然后再组装你每组数据里分别有多少条数据，这两个必须一致，否则会报错。</p>
+<p>代码如下：</p>
+<p>   public GraphicalView getgraphicalView(){</p>
+<pre><code>    XYMultipleSeriesRenderer renderer = getBarDemoRenderer();
+    List&lt;JiGouBean&gt; cityList = safeyMindStaticMessage.getTableJiGoulist();
+
+    //让X轴显示的是市区
+    for(int i=0;i&lt;cityList.size()-1;i++){
+        renderer.addXTextLabel(i+1, cityList.get(i).getJiGouName());
+    }
+      GraphicalView graphicalView = ChartFactory.getBarChartView(context, getBarDataset(), renderer, Type.DEFAULT );
+
+      return graphicalView;
+}
+
+/**
+ * 得到图表数据
+ * @return
+ */
+private XYMultipleSeriesDataset getBarDataset() {
+
+    XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+
+
+    int datesize = safeyMindStaticMessage.getListZhu().get(0).size();
+    int citynum = safeyMindStaticMessage.getTableJiGoulist().size();    //数据的个数
+
+//    int datasize = chartdata.getDataList().get(0).size();     //每个城市有多少条数据
+
+ for ( int i = 0; i &lt; datesize ; i++) {    //根据数据的个数决定一块显示多少条数据
+        // CategorySeries 创建种类
+      CategorySeries series = new CategorySeries(safeyMindStaticMessage.getListZhu().get(0).get(i));    //县市区
+
+      for ( int k = 0; k &lt; citynum ; k++) {            //Y轴显示的是数字   根据组得到每组中地区对应的数字
+        series.add( Float.parseFloat(safeyMindStaticMessage.getListZhu().get(k+1).get(i)));
+      }
+      dataset.addSeries(series.toXYSeries());
+
+    }
+
+    return dataset;
+
+  }
+    /**
+     * 得到柱状图的列样式
+     * @return
+     */
+public XYMultipleSeriesRenderer getBarDemoRenderer() {
+
+    XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
+
+  //  int datasize = chartdata.getDataList().get(0).size();
+    int datasize = safeyMindStaticMessage.getListZhu().get(0).size();//四列
+    for(int i=0; i&lt;datasize; i++){
+        SimpleSeriesRenderer r = new SimpleSeriesRenderer();
+         r.setDisplayChartValues(true);//设置是否在柱体上方显示值
+         r.setChartValuesTextAlign(Align.CENTER);
+         r.setChartValuesTextSize(16);
+         r.setColor(colors[i]);
+         renderer.addSeriesRenderer(r);
+    }
+
+    setChartSettings(renderer);
+
+    return renderer;
+
+  }
+
+
+    /**
+     * 设置描绘器的其他属性
+     * @param renderer
+     */
+   private void setChartSettings(XYMultipleSeriesRenderer renderer) {
+
+    renderer.setChartTitle( safeyMindStaticMessage.getChart_title() );//设置柱图名称
+
+  //  renderer.setXTitle( &quot;开封市&quot; );//设置X轴名称
+
+    renderer.setYTitle( &quot;数量&quot; );//设置Y轴名称
+    renderer.setAxisTitleTextSize(18);
+</code></pre><p>//        if(chartdata.getDateList().size()==1){<br>//            renderer.setXAxisMin(0);//设置X轴的最小值为0<br>//<br>//            renderer.setXAxisMax(2);//设置X轴的最大值为2<br>//        }</p>
+<pre><code>  renderer.setXAxisMin(0.5);//设置X轴的最小值为0
+  renderer.setXAxisMax(safeyMindStaticMessage.getTableJiGoulist().size()==1?1.5:safeyMindStaticMessage.getTableJiGoulist().size());//设置X轴的最大值
+  renderer.setXLabelsAlign(Align.CENTER);
+
+  renderer.setYAxisMin(0);//设置Y轴的最小值为0
+  renderer.setYAxisMax(safeyMindStaticMessage.getBigNumber()+safeyMindStaticMessage.getBigNumber()/10);;//设置Y轴最大值
+  renderer.setShowGrid(true);//设置是否在图表中显示网格
+  renderer.setXLabels(0);//设置X轴显示的刻度标签的个数    设置为0  则不显示数字
+  renderer.setYLabels(6);//设置Y轴上只有6个刻度
+
+  renderer.setBarSpacing(0.3);//设置两排数据的间距
+  renderer.setZoomButtonsVisible(true);//设置可以放大缩小按钮
+  renderer.setZoomEnabled(true);
+  renderer.setZoomLimits(new double[] { 0,safeyMindStaticMessage.getTableJiGoulist().size(), 0, 90 });
+  renderer.setBackgroundColor(context.getResources().getColor(R.color.whitesmoke));//设置背景颜色
+  renderer.setApplyBackgroundColor(true);//设置背景颜色可用
+  renderer.setLabelsTextSize(16);//设置表上的文字大小
+  renderer.setChartTitleTextSize(18);//);//设置图表标题的文字大小   
+  renderer.setLegendTextSize(14);//设置下面说明地区文字的大小
+  renderer.setLegendHeight( safeyMindStaticMessage.getListZhu().get(0).size()&lt;4?75:((safeyMindStaticMessage.getListZhu().get(0).size()/4+1)*25));//设置下面说明地区文字的相对底部的高度
+  renderer.setPanEnabled(true,true);
+  renderer.setPanLimits(new double[] { 0, safeyMindStaticMessage.getTableJiGoulist().size()+2, 0, 
+          safeyMindStaticMessage.getBigNumber()+safeyMindStaticMessage.getBigNumber()/10 });//设置拉动的范围
+//renderer.setRange(new double[] { 0, chartdata.getDateList().size()*2, 0, chartdata.getBignumber()*2 });
+
+}
+</code></pre><p>这里显示了柱状图的获得方法，饼状图、折线图类似，最后用了 <code>ChartFactory.getBarChartView(context, getBarDataset(), renderer, Type.DEFAULT );</code><br>这个方法得到VIEW，然后你将这个VIEW展示到你自己的activity上就可以le .</p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/05/29/Android-Androidtree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+           Android可展开树 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/04/23/Android-dialog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android自定义dialog</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android-Achartengine" data-title=" achartengine使用说明 " data-url="http://wedcel.com/2013/05/21/Android-Achartengine/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wedcel"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Wedcel
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
