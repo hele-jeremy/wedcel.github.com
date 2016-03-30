@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2014/10/28/Android-SmartUpdate/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android在windows下增量更新">
-<meta property="og:updated_time" content="2014-10-27T17:54:15.000Z">
+<meta property="og:updated_time" content="2016-03-30T13:43:40.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" Android Project在windows下的增量更新 ">
 <meta name="twitter:description" content="Android在windows下增量更新">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -217,8 +217,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>####本项目最初参考的是<a href="https://github.com/cundong/SmartAppUpdates" target="_blank" rel="external">SmartAppUpdates</a>，开头声明，尊重作者。</p>
-<h3 id="本项目github地址"><a href="#本项目github地址" class="headerlink" title="本项目github地址"></a><a href="https://github.com/wedcel/ApkPatchDemo" target="_blank" rel="external">本项目github地址</a></h3><p>本篇文章是介绍在windwos下进行增量更新的方法，这个windows的说明是由于以下原因： </p>
+<h4 id="本项目最初参考的是SmartAppUpdates，开头声明，尊重作者。"><a href="#本项目最初参考的是SmartAppUpdates，开头声明，尊重作者。" class="headerlink" title="本项目最初参考的是SmartAppUpdates，开头声明，尊重作者。"></a>本项目最初参考的是<a href="https://github.com/cundong/SmartAppUpdates" target="_blank" rel="external">SmartAppUpdates</a>，开头声明，尊重作者。</h4><h3 id="本项目github地址"><a href="#本项目github地址" class="headerlink" title="本项目github地址"></a><a href="https://github.com/wedcel/ApkPatchDemo" target="_blank" rel="external">本项目github地址</a></h3><p>本篇文章是介绍在windwos下进行增量更新的方法，这个windows的说明是由于以下原因： </p>
 <ul>
 <li><strong>拆包</strong> ：是利用的bsdiff.exe进行的拆包，所以才声明是windows,勿喷</li>
 <li><strong>合并</strong> ：合并还是用的bspatch算法</li>
@@ -229,17 +228,15 @@
 <p>-<strong>拆包用法</strong>  bsdiff.exe所在文件夹下运行bsdiff oldfile newfile patchfile  就可以讲旧apk和新apk对比，形成一个新的patch文件， 这个文件应该是不限制命名的。<br>-<strong>合并用法</strong>  这里的合并只是用来说明下，你可以验证自己所拆的包是不是可用的，具体在项目中的合并还是使用的bspatch算法，这里运行bspatch oldfile newfile patchfile ，如果patch不能用，会提示corrupt patch. 注意，这里只做校验用。</p>
 <h2 id="项目说明"><a href="#项目说明" class="headerlink" title="项目说明"></a>项目说明</h2><h4 id="ApkUtils-java"><a href="#ApkUtils-java" class="headerlink" title="ApkUtils.java"></a>ApkUtils.java</h4><p>ApkUtils里面有三个方法 主要是对apk做相关操作</p>
 <p>-<strong>isInstalled</strong> 是判断是否安装了这个apk ，这个一般是第三方lib来判断的，自己项目肯定是安装了自己的apk的<br>-<strong>getSourceApkPath</strong>  这个最重要，是拿到现有的apk的路径。<br>-<strong>installApk</strong>  发送请求安装</p>
-<h4 id="SignUtils-java"><a href="#SignUtils-java" class="headerlink" title="SignUtils.java"></a>SignUtils.java</h4><p>####SignUtils主要是签名判断相关方法 主要是对已安装和未安装APK签名对比</p>
-<p>-<strong>getUnInstalledApkSignature</strong> 获取未安装的apk的签名 就是那个patch的签名<br>-<strong>InstalledApkSignature</strong>  获取已经安装的apk的签名</p>
+<h4 id="SignUtils-java"><a href="#SignUtils-java" class="headerlink" title="SignUtils.java"></a>SignUtils.java</h4><h4 id="SignUtils主要是签名判断相关方法-主要是对已安装和未安装APK签名对比"><a href="#SignUtils主要是签名判断相关方法-主要是对已安装和未安装APK签名对比" class="headerlink" title="SignUtils主要是签名判断相关方法 主要是对已安装和未安装APK签名对比"></a>SignUtils主要是签名判断相关方法 主要是对已安装和未安装APK签名对比</h4><p>-<strong>getUnInstalledApkSignature</strong> 获取未安装的apk的签名 就是那个patch的签名<br>-<strong>InstalledApkSignature</strong>  获取已经安装的apk的签名</p>
 <h4 id="PatchUtils-java"><a href="#PatchUtils-java" class="headerlink" title="PatchUtils.java"></a>PatchUtils.java</h4><p>这里就是本地native的patch方法</p>
 <h4 id="NDK"><a href="#NDK" class="headerlink" title="NDK"></a>NDK</h4><p>jni文件夹内是bzip和patch的算法，合并patch以来bzip，里面的Application.mk我配置的是全平台，可以根据自己的选择使用，Android.mk是so的相关配置，使用在自己项目的时候请注意改名。</p>
 <p>-<strong>com_wedcel_utils_PatchUtils.h</strong> patch合并方法头文件  声明本地调用的方法<br>-<strong>com_wedcel_utils_PatchUtils.c</strong> 头文件的实现，主要实现了合并算法并返回一个int值，返回0表示合并成功</p>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>参考项目中的使用方法主要是在MainActivity,为了简便期间，我将所有声明都写在了main中，并且简历了一个SecondActivity来生成一个新的apk.在main中，点击升级按钮，老apk里会提示升级，新apk提示已经是最新版本来区别，可以看我在AlertDialog中注释掉的代码。</p>
-<p>####updae方法中调用了asynctask来执行合并</p>
-<p><strong>PatchAsyncTask</strong> 是调用的核心所在，我这里面写死了patch和新apk的路径，使用时候请根据实际情况来使用，先拿到老apk的源文件，这个Androd会在data里保存一份,并且提供了可以拿到的方法，在apkutils的getSourceApkPath方法里面。如果拿不到，请下载完整包，如果拿到了，那就拿这个apk和patch合并成一个新的apk，并且比较旧apk和合成后的apk的签名是否一致，如果一致就可以安装了如果不一致，请下载完整包。</p>
+<h4 id="updae方法中调用了asynctask来执行合并"><a href="#updae方法中调用了asynctask来执行合并" class="headerlink" title="updae方法中调用了asynctask来执行合并"></a>updae方法中调用了asynctask来执行合并</h4><p><strong>PatchAsyncTask</strong> 是调用的核心所在，我这里面写死了patch和新apk的路径，使用时候请根据实际情况来使用，先拿到老apk的源文件，这个Androd会在data里保存一份,并且提供了可以拿到的方法，在apkutils的getSourceApkPath方法里面。如果拿不到，请下载完整包，如果拿到了，那就拿这个apk和patch合并成一个新的apk，并且比较旧apk和合成后的apk的签名是否一致，如果一致就可以安装了如果不一致，请下载完整包。</p>
 <h3 id="反馈与建议"><a href="#反馈与建议" class="headerlink" title="反馈与建议"></a>反馈与建议</h3><ul>
 <li>微博：<a href="http://weibo.com/wedcel" target="_blank" rel="external">@Wedcel</a></li>
-<li>邮箱：<a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x77;&#x65;&#x64;&#99;&#101;&#108;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x77;&#x65;&#x64;&#99;&#101;&#108;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></li>
+<li>邮箱：<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#119;&#x65;&#100;&#x63;&#x65;&#108;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#119;&#x65;&#100;&#x63;&#x65;&#108;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a></li>
 </ul>
 <hr>
 <p>感谢阅读这篇博客。</p>

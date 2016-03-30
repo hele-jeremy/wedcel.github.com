@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2015/01/21/AndroidondDaw/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android onDraw">
-<meta property="og:updated_time" content="2015-03-09T11:58:31.205Z">
+<meta property="og:updated_time" content="2016-03-30T13:40:22.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android onDraw">
 <meta name="twitter:description" content="Android onDraw">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -217,32 +217,31 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###Paint 画笔<br>Paint是canvas里面最重要的参数，没有之一，canvas除非是利用图片绘制，否则都需要画笔这个参数，并且是@NOTNULL的限制，利用这个画笔，你才能绘制出你想要的东西</p>
-<p>#####setMaskFilter(MaskFilter maskfilter);<br>设置MaskFilter，可以用不同的MaskFilter实现滤镜的效果，如滤化，立体等</p>
-<p>#####setShader(Shader shader);<br>设置图像效果，使用Shader可以绘制出各种渐变效果</p>
-<p>#####setShadowLayer(float radius ,float dx,float dy,int color);<br>在图形下面设置阴影层，产生阴影效果，radius为阴影的角度，dx和dy为阴影在x轴和y轴上的距离，color为阴影的颜色 </p>
-<p>#####setColorFilter(ColorFilter colorfilter);<br>设置颜色过滤器，可以在绘制颜色时实现不用颜色的变换效果</p>
-<p>#####setStyle(Paint.Style style);<br>设置画笔的样式，为FILL，FILL_OR_STROKE，或STROKE </p>
+<h3 id="Paint-画笔"><a href="#Paint-画笔" class="headerlink" title="Paint 画笔"></a>Paint 画笔</h3><p>Paint是canvas里面最重要的参数，没有之一，canvas除非是利用图片绘制，否则都需要画笔这个参数，并且是@NOTNULL的限制，利用这个画笔，你才能绘制出你想要的东西</p>
+<h5 id="setMaskFilter-MaskFilter-maskfilter"><a href="#setMaskFilter-MaskFilter-maskfilter" class="headerlink" title="setMaskFilter(MaskFilter maskfilter);"></a>setMaskFilter(MaskFilter maskfilter);</h5><p>设置MaskFilter，可以用不同的MaskFilter实现滤镜的效果，如滤化，立体等</p>
+<h5 id="setShader-Shader-shader"><a href="#setShader-Shader-shader" class="headerlink" title="setShader(Shader shader);"></a>setShader(Shader shader);</h5><p>设置图像效果，使用Shader可以绘制出各种渐变效果</p>
+<h5 id="setShadowLayer-float-radius-float-dx-float-dy-int-color"><a href="#setShadowLayer-float-radius-float-dx-float-dy-int-color" class="headerlink" title="setShadowLayer(float radius ,float dx,float dy,int color);"></a>setShadowLayer(float radius ,float dx,float dy,int color);</h5><p>在图形下面设置阴影层，产生阴影效果，radius为阴影的角度，dx和dy为阴影在x轴和y轴上的距离，color为阴影的颜色 </p>
+<h5 id="setColorFilter-ColorFilter-colorfilter"><a href="#setColorFilter-ColorFilter-colorfilter" class="headerlink" title="setColorFilter(ColorFilter colorfilter);"></a>setColorFilter(ColorFilter colorfilter);</h5><p>设置颜色过滤器，可以在绘制颜色时实现不用颜色的变换效果</p>
+<h5 id="setStyle-Paint-Style-style"><a href="#setStyle-Paint-Style-style" class="headerlink" title="setStyle(Paint.Style style);"></a>setStyle(Paint.Style style);</h5><p>设置画笔的样式，为FILL，FILL_OR_STROKE，或STROKE </p>
 <h5 id="setStrokeCap-Paint-Cap-cap"><a href="#setStrokeCap-Paint-Cap-cap" class="headerlink" title="setStrokeCap(Paint.Cap cap);"></a>setStrokeCap(Paint.Cap cap);</h5><p>当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的图形样式，如圆形样式  Cap.ROUND,或方形样式Cap.SQUARE </p>
 <a id="more"></a>
 <h5 id="setSrokeJoin-Paint-Join-join"><a href="#setSrokeJoin-Paint-Join-join" class="headerlink" title="setSrokeJoin(Paint.Join join);"></a>setSrokeJoin(Paint.Join join);</h5><p> 设置绘制时各图形的结合方式，如平滑效果等 </p>
-<p>#####setStrokeWidth(float width);<br>当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的粗细度 </p>
+<h5 id="setStrokeWidth-float-width"><a href="#setStrokeWidth-float-width" class="headerlink" title="setStrokeWidth(float width);"></a>setStrokeWidth(float width);</h5><p>当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的粗细度 </p>
 <h5 id="setXfermode-Xfermode-xfermode"><a href="#setXfermode-Xfermode-xfermode" class="headerlink" title="setXfermode(Xfermode xfermode);"></a>setXfermode(Xfermode xfermode);</h5><p>设置图形重叠时的处理方式，如合并，取交集或并集，经常用来制作橡皮的擦除效果 </p>
 <h5 id="setUnderlineText-boolean-underlineText"><a href="#setUnderlineText-boolean-underlineText" class="headerlink" title="setUnderlineText(boolean underlineText);"></a>setUnderlineText(boolean underlineText);</h5><p> 设置带有下划线的文字效果 </p>
 <h5 id="setStrikeThruText-boolean-strikeThruText"><a href="#setStrikeThruText-boolean-strikeThruText" class="headerlink" title="setStrikeThruText(boolean strikeThruText);"></a>setStrikeThruText(boolean strikeThruText);</h5><p> 设置带有删除线的效果 </p>
 <p>注意： new Paint(Paint.ANTI_ALIAS_FLAG) 可以直接去除锯齿 其实是用的flag字段表示的</p>
-<p>###RectF Rect<br>Rect 就是标识一块地方 大小是right-left  bootom-top这么大只不过这里是int值的<br>RectF值跟Rect差不多 只不过是float值</p>
+<h3 id="RectF-Rect"><a href="#RectF-Rect" class="headerlink" title="RectF Rect"></a>RectF Rect</h3><p>Rect 就是标识一块地方 大小是right-left  bootom-top这么大只不过这里是int值的<br>RectF值跟Rect差不多 只不过是float值</p>
 <p>你会发现Canvas里面只要有方法是用Rect的基本上都有同名方法用RectF的</p>
-<p>###Path<br>path在我的理解中 其实是一个路径，你可以使用patH显示moveto某个坐标，然后lineto另外一个坐标，最后用closed来连接最后一个和第一个坐标形成一个图型，如果不closed可以在lineto起始坐标其实是一样的</p>
-<p>###Shader<br>使用Shader可以做出渐变色的效果</p>
-<p>###MaskFilter </p>
-<p>###Canvas<br>Canvas是画布，提供了各种绘画的方法，在画布（View）上绘制你想要的图像，这里只是绘制。在这之前已经执行了onMeasure和onLayout方法你已经知道自己的view的大小和位置了，所以可以根据自己的要求绘制在你的view的任何地方。</p>
+<h3 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h3><p>path在我的理解中 其实是一个路径，你可以使用patH显示moveto某个坐标，然后lineto另外一个坐标，最后用closed来连接最后一个和第一个坐标形成一个图型，如果不closed可以在lineto起始坐标其实是一样的</p>
+<h3 id="Shader"><a href="#Shader" class="headerlink" title="Shader"></a>Shader</h3><p>使用Shader可以做出渐变色的效果</p>
+<h3 id="MaskFilter"><a href="#MaskFilter" class="headerlink" title="MaskFilter"></a>MaskFilter</h3><h3 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h3><p>Canvas是画布，提供了各种绘画的方法，在画布（View）上绘制你想要的图像，这里只是绘制。在这之前已经执行了onMeasure和onLayout方法你已经知道自己的view的大小和位置了，所以可以根据自己的要求绘制在你的view的任何地方。</p>
 <p>Canvas里的draw方法大都是native的方法</p>
-<p>#####drawCircle<br> drawCircle(float cx, float cy, float radius, Paint paint)</p>
+<h5 id="drawCircle"><a href="#drawCircle" class="headerlink" title="drawCircle"></a>drawCircle</h5><p> drawCircle(float cx, float cy, float radius, Paint paint)</p>
 <p>cx和cy分别是此view相对于自己左上角的距离</p>
 <p>radius是半径，如果你的半径特别大，超出了范围，那么他不会管你而是按照你的设定继续绘制，当然 你可能显示不完整</p>
-<p>#####drawRect<br>drawRect(float left, float top, float right, float bottom, Paint paint)<br>left和top分别是此view相对于自己左上角的距离<br>大小是right-left  bootom-top这么大</p>
-<p>#####drawOval<br>drawOval(RectF oval, Paint paint)<br>其实是在指定区域里面绘制一个圆形 如果这个区域是正方形 那这个就是圆形 如果这个区域是长方形 那么这就是一个椭圆</p>
+<h5 id="drawRect"><a href="#drawRect" class="headerlink" title="drawRect"></a>drawRect</h5><p>drawRect(float left, float top, float right, float bottom, Paint paint)<br>left和top分别是此view相对于自己左上角的距离<br>大小是right-left  bootom-top这么大</p>
+<h5 id="drawOval"><a href="#drawOval" class="headerlink" title="drawOval"></a>drawOval</h5><p>drawOval(RectF oval, Paint paint)<br>其实是在指定区域里面绘制一个圆形 如果这个区域是正方形 那这个就是圆形 如果这个区域是长方形 那么这就是一个椭圆</p>
 
         
       

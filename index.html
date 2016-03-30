@@ -5,15 +5,15 @@
   
   <title>Wedcel&#39;s blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="android 博客 王威威 高级 学习">
+  <meta name="description" content="android java wedcel 技术 王威威">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wedcel's blogs">
 <meta property="og:url" content="http://wedcel.com/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
-<meta property="og:description" content="android 博客 王威威 高级 学习">
+<meta property="og:description" content="android java wedcel 技术 王威威">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wedcel's blogs">
-<meta name="twitter:description" content="android 博客 王威威 高级 学习">
+<meta name="twitter:description" content="android java wedcel 技术 王威威">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -119,7 +119,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -142,7 +142,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -268,8 +268,7 @@
         <hr>
 <p>最近在学习DNS加速，所以就查了下Android本地DNS的相关知识。</p>
 <p>Android 官网有这么一句话<br><a href="http://developer.android.com/reference/java/net/InetAddress.html">点击这里查看</a></p>
-<p>####DNS caching</p>
-<blockquote>
+<h4 id="DNS-caching"><a href="#DNS-caching" class="headerlink" title="DNS caching"></a>DNS caching</h4><blockquote>
 <p>In Android 4.0 (Ice Cream Sandwich) and earlier, DNS caching was performed both by InetAddress and by the C library, which meant that DNS TTLs could not be honored correctly. In later releases, caching is done solely by the C library and DNS TTLs are honored.</p>
 </blockquote>
 <p>这句话里面的TTLS是cache过期时间，这句话说明在android4.0和早期版本里面，设置DNS的cache  ttls并不会起效，我们只能在之后的版本里设置TTL。</p>
@@ -333,8 +332,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>####查询错误信息</p>
-<p>NDK一旦报错 可以使用以下命令 到项目根目录下  会生出obj/local/armeabi文件夹<br>运行以下命令：</p>
+<h4 id="查询错误信息"><a href="#查询错误信息" class="headerlink" title="查询错误信息"></a>查询错误信息</h4><p>NDK一旦报错 可以使用以下命令 到项目根目录下  会生出obj/local/armeabi文件夹<br>运行以下命令：</p>
 <pre><code>adb shell logcat |  ndk-stack -sym obj/local/armeabi
 </code></pre><p>可以展示错在哪一行 具体错误信息 前提是adb和ndk环境变量都在</p>
 
@@ -465,8 +463,7 @@
       
         <hr>
 <p>初衷：<br>对于中小型公司来说，需要打包给测试让，但是每次打包都需要研发人员去打，这样会导致一些问题的出现，比如开发人员没有时间，测试人员就需要等待，浪费时间。</p>
-<p>##Jenkins简介##</p>
-<p>Jenkins 是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。Jenkins 的前身是Hudson是一个可扩展的持续集成引擎。</p>
+<h2 id="Jenkins简介"><a href="#Jenkins简介" class="headerlink" title="Jenkins简介"></a>Jenkins简介</h2><p>Jenkins 是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。Jenkins 的前身是Hudson是一个可扩展的持续集成引擎。</p>
 <p><a href="http://my.oschina.net/uboluo/blog/157483">jenkins和gradle详细简介看这里</a></p>
 <p>重点是开源-。-,所以可以很放心的使用。</p>
 <p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">jenkins下载地址</a></p>
@@ -532,16 +529,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>#####mark一下部分问题</p>
-<p>hexo g 是hexo generate的缩写 可以生成博客</p>
+<h5 id="mark一下部分问题"><a href="#mark一下部分问题" class="headerlink" title="mark一下部分问题"></a>mark一下部分问题</h5><p>hexo g 是hexo generate的缩写 可以生成博客</p>
 <p>hexo s 是hexo server的缩写 运行后在本地localhost:4000 里面访问生成的博客</p>
 <p>hexo d 是hexo deploy的缩写 是往github上部署博客</p>
 <p>generate和server都可以在com命令行下运行</p>
 <p>但是deploy却会报错“Error: spawn git ENOENT#”</p>
-<p>#####Error: spawn git ENOENT####</p>
-<p>记得要在git bash里面运行hexo d 就不会报错了… </p>
-<p>#####Image问题####</p>
-<p>我的images文件夹和_post在同一目录，部署完后的图片路径要“../../../../../images/xxx.jpg”才行</p>
+<h5 id="Error-spawn-git-ENOENT"><a href="#Error-spawn-git-ENOENT" class="headerlink" title="Error: spawn git ENOENT"></a>Error: spawn git ENOENT</h5><p>记得要在git bash里面运行hexo d 就不会报错了… </p>
+<h5 id="Image问题"><a href="#Image问题" class="headerlink" title="Image问题"></a>Image问题</h5><p>我的images文件夹和_post在同一目录，部署完后的图片路径要“../../../../../images/xxx.jpg”才行</p>
+<h5 id="yilia主题的问题"><a href="#yilia主题的问题" class="headerlink" title="yilia主题的问题"></a>yilia主题的问题</h5><p>我发现一个问题是 用yilia主题后  ####这个标签失效了  试试上是这个标签的标准用法是要在#号之后加空格  加了空格就可以识别了</p>
 <p>mark</p>
 
         
@@ -670,10 +665,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###VeiewGroup</p>
-<p>#####UNSPECIFIED 0<br>这说明parent没有对child强加任何限制，child可以是它想要的任何尺寸。这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是布局的最小需要值 所以不可能会显示不完整</p>
-<p>#####EXACTLY 1073741824<br>Parent为child决定了一个绝对尺寸，child将会被赋予这些边界限制，不管child自己想要多大。 赋值多大就是多大 即便是父布局不够 也继续外延，如果父布局不够 可能显示不全</p>
-<p>#####AT_MOST -2147483648<br>Child可以是自己任意的大小，但是有个绝对尺寸的上限    这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是设置的值 所以可能会显示不完整<br>
+<h3 id="VeiewGroup"><a href="#VeiewGroup" class="headerlink" title="VeiewGroup"></a>VeiewGroup</h3><p>高宽参数</p>
+<h5 id="UNSPECIFIED-0"><a href="#UNSPECIFIED-0" class="headerlink" title="UNSPECIFIED 0"></a>UNSPECIFIED 0</h5><p>这说明parent没有对child强加任何限制，child可以是它想要的任何尺寸。这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是布局的最小需要值 所以不可能会显示不完整</p>
+<h5 id="EXACTLY-1073741824"><a href="#EXACTLY-1073741824" class="headerlink" title="EXACTLY 1073741824"></a>EXACTLY 1073741824</h5><p>Parent为child决定了一个绝对尺寸，child将会被赋予这些边界限制，不管child自己想要多大。 赋值多大就是多大 即便是父布局不够 也继续外延，如果父布局不够 可能显示不全</p>
+<h5 id="AT-MOST-2147483648"><a href="#AT-MOST-2147483648" class="headerlink" title="AT_MOST -2147483648"></a>AT_MOST -2147483648</h5><p>Child可以是自己任意的大小，但是有个绝对尺寸的上限    这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是设置的值 所以可能会显示不完整<br>
         <hr/>
         <p class="article-more-link">
           <a  href="/2015/02/28/Android onMeasure/#more">more >></a>
@@ -734,12 +729,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###Paint 画笔<br>Paint是canvas里面最重要的参数，没有之一，canvas除非是利用图片绘制，否则都需要画笔这个参数，并且是@NOTNULL的限制，利用这个画笔，你才能绘制出你想要的东西</p>
-<p>#####setMaskFilter(MaskFilter maskfilter);<br>设置MaskFilter，可以用不同的MaskFilter实现滤镜的效果，如滤化，立体等</p>
-<p>#####setShader(Shader shader);<br>设置图像效果，使用Shader可以绘制出各种渐变效果</p>
-<p>#####setShadowLayer(float radius ,float dx,float dy,int color);<br>在图形下面设置阴影层，产生阴影效果，radius为阴影的角度，dx和dy为阴影在x轴和y轴上的距离，color为阴影的颜色 </p>
-<p>#####setColorFilter(ColorFilter colorfilter);<br>设置颜色过滤器，可以在绘制颜色时实现不用颜色的变换效果</p>
-<p>#####setStyle(Paint.Style style);<br>设置画笔的样式，为FILL，FILL_OR_STROKE，或STROKE </p>
+<h3 id="Paint-画笔"><a href="#Paint-画笔" class="headerlink" title="Paint 画笔"></a>Paint 画笔</h3><p>Paint是canvas里面最重要的参数，没有之一，canvas除非是利用图片绘制，否则都需要画笔这个参数，并且是@NOTNULL的限制，利用这个画笔，你才能绘制出你想要的东西</p>
+<h5 id="setMaskFilter-MaskFilter-maskfilter"><a href="#setMaskFilter-MaskFilter-maskfilter" class="headerlink" title="setMaskFilter(MaskFilter maskfilter);"></a>setMaskFilter(MaskFilter maskfilter);</h5><p>设置MaskFilter，可以用不同的MaskFilter实现滤镜的效果，如滤化，立体等</p>
+<h5 id="setShader-Shader-shader"><a href="#setShader-Shader-shader" class="headerlink" title="setShader(Shader shader);"></a>setShader(Shader shader);</h5><p>设置图像效果，使用Shader可以绘制出各种渐变效果</p>
+<h5 id="setShadowLayer-float-radius-float-dx-float-dy-int-color"><a href="#setShadowLayer-float-radius-float-dx-float-dy-int-color" class="headerlink" title="setShadowLayer(float radius ,float dx,float dy,int color);"></a>setShadowLayer(float radius ,float dx,float dy,int color);</h5><p>在图形下面设置阴影层，产生阴影效果，radius为阴影的角度，dx和dy为阴影在x轴和y轴上的距离，color为阴影的颜色 </p>
+<h5 id="setColorFilter-ColorFilter-colorfilter"><a href="#setColorFilter-ColorFilter-colorfilter" class="headerlink" title="setColorFilter(ColorFilter colorfilter);"></a>setColorFilter(ColorFilter colorfilter);</h5><p>设置颜色过滤器，可以在绘制颜色时实现不用颜色的变换效果</p>
+<h5 id="setStyle-Paint-Style-style"><a href="#setStyle-Paint-Style-style" class="headerlink" title="setStyle(Paint.Style style);"></a>setStyle(Paint.Style style);</h5><p>设置画笔的样式，为FILL，FILL_OR_STROKE，或STROKE </p>
 <h5 id="setStrokeCap-Paint-Cap-cap"><a href="#setStrokeCap-Paint-Cap-cap" class="headerlink" title="setStrokeCap(Paint.Cap cap);"></a>setStrokeCap(Paint.Cap cap);</h5><p>当画笔样式为STROKE或FILL_OR_STROKE时，设置笔刷的图形样式，如圆形样式  Cap.ROUND,或方形样式Cap.SQUARE </p>
         <hr/>
         <p class="article-more-link">
@@ -801,8 +796,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###对事件的分发支持如下：</p>
-<p>#######这里的View是只textview类似的不能有子View的View，不是最大的父类View.<br>重写textview的时候  可以继承到dispatchTouchEvent  这是从View里面拿到的 </p>
+<h3 id="对事件的分发支持如下："><a href="#对事件的分发支持如下：" class="headerlink" title="对事件的分发支持如下："></a>对事件的分发支持如下：</h3><p>####### 这里的View是只textview类似的不能有子View的View，不是最大的父类View.<br>重写textview的时候  可以继承到dispatchTouchEvent  这是从View里面拿到的 </p>
 <p>textview类似的view里面没有这个方法 也就不会处理 但你继承了  就会处理</p>
 <p>ACTION_CANCEL的执行 只是在你滑动超过了这个控件之外的时候 才会触发</p>
 <p>每个轮流执行下去的都会执行ACTION_DOWN  但是只有最后处理事件的地方或者返回true的地方才会执行move和up 事件</p>

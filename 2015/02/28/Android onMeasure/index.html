@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2015/02/28/Android onMeasure/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android onMeasure">
-<meta property="og:updated_time" content="2015-03-09T11:57:28.946Z">
+<meta property="og:updated_time" content="2016-03-30T13:39:46.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android onMeasure">
 <meta name="twitter:description" content="Android onMeasure">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -217,15 +217,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###VeiewGroup</p>
-<p>#####UNSPECIFIED 0<br>这说明parent没有对child强加任何限制，child可以是它想要的任何尺寸。这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是布局的最小需要值 所以不可能会显示不完整</p>
-<p>#####EXACTLY 1073741824<br>Parent为child决定了一个绝对尺寸，child将会被赋予这些边界限制，不管child自己想要多大。 赋值多大就是多大 即便是父布局不够 也继续外延，如果父布局不够 可能显示不全</p>
-<p>#####AT_MOST -2147483648<br>Child可以是自己任意的大小，但是有个绝对尺寸的上限    这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是设置的值 所以可能会显示不完整<br><a id="more"></a></p>
-<p>###Veiew</p>
-<p>指定大小的话拿到的是EXACTLY</p>
-<p>#####UNSPECIFIED</p>
-<p>#####EXACTLY 1073741824<br>指定大小或者wrapcontent拿到的是这个</p>
-<p>#####AT_MOST<br>FillParent拿到的是这个</p>
+<h3 id="VeiewGroup"><a href="#VeiewGroup" class="headerlink" title="VeiewGroup"></a>VeiewGroup</h3><p>高宽参数</p>
+<h5 id="UNSPECIFIED-0"><a href="#UNSPECIFIED-0" class="headerlink" title="UNSPECIFIED 0"></a>UNSPECIFIED 0</h5><p>这说明parent没有对child强加任何限制，child可以是它想要的任何尺寸。这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是布局的最小需要值 所以不可能会显示不完整</p>
+<h5 id="EXACTLY-1073741824"><a href="#EXACTLY-1073741824" class="headerlink" title="EXACTLY 1073741824"></a>EXACTLY 1073741824</h5><p>Parent为child决定了一个绝对尺寸，child将会被赋予这些边界限制，不管child自己想要多大。 赋值多大就是多大 即便是父布局不够 也继续外延，如果父布局不够 可能显示不全</p>
+<h5 id="AT-MOST-2147483648"><a href="#AT-MOST-2147483648" class="headerlink" title="AT_MOST -2147483648"></a>AT_MOST -2147483648</h5><p>Child可以是自己任意的大小，但是有个绝对尺寸的上限    这个上限 是子布局的最小需要值 即便自布局设置match_parent也无用  设置的小于自布局的最小需要值  那就是设置的值 所以可能会显示不完整<br><a id="more"></a></p>
 <p>measureChildren时候：</p>
 <p>如果子View指定了宽度或者高度的值为数字值（非wrap或者fill）<br>但是父Group里面却是EXACTLY或者AT_MOST  则会起冲突  父类里除了<br>自定义的别的都不会显示。 高和宽的设定都会有影响。</p>
 <p>但是父布局设置成UNSPECIFIED时不会对View的onMeasure产生影响。</p>

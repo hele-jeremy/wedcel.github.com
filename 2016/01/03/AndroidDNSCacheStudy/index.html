@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2016/01/03/AndroidDNSCacheStudy/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android DNS">
-<meta property="og:updated_time" content="2016-03-23T13:30:23.230Z">
+<meta property="og:updated_time" content="2016-03-30T13:37:35.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android DNS Local Cache的学习 ">
 <meta name="twitter:description" content="Android DNS">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -219,18 +219,16 @@
         <hr>
 <p>最近在学习DNS加速，所以就查了下Android本地DNS的相关知识。</p>
 <p>Android 官网有这么一句话<br><a href="http://developer.android.com/reference/java/net/InetAddress.html" target="_blank" rel="external">点击这里查看</a></p>
-<p>####DNS caching</p>
-<blockquote>
+<h4 id="DNS-caching"><a href="#DNS-caching" class="headerlink" title="DNS caching"></a>DNS caching</h4><blockquote>
 <p>In Android 4.0 (Ice Cream Sandwich) and earlier, DNS caching was performed both by InetAddress and by the C library, which meant that DNS TTLs could not be honored correctly. In later releases, caching is done solely by the C library and DNS TTLs are honored.</p>
 </blockquote>
 <p>这句话里面的TTLS是cache过期时间，这句话说明在android4.0和早期版本里面，设置DNS的cache  ttls并不会起效，我们只能在之后的版本里设置TTL。</p>
 <a id="more"></a>
-<p>#####根据JAVA的API来看</p>
-<p>networkaddress.cache.ttl<br>这个属性可以控制DNS Cache<br>并且以ews.500.com来测试来看<br>如果缓存10S<br>第一次获取到的间隔是20毫秒<br>如果10S内再获取 一般是0<br>110S外获取 还是20毫秒左右<br>说明起效</p>
+<h5 id="根据JAVA的API来看"><a href="#根据JAVA的API来看" class="headerlink" title="根据JAVA的API来看"></a>根据JAVA的API来看</h5><p>networkaddress.cache.ttl<br>这个属性可以控制DNS Cache<br>并且以ews.500.com来测试来看<br>如果缓存10S<br>第一次获取到的间隔是20毫秒<br>如果10S内再获取 一般是0<br>110S外获取 还是20毫秒左右<br>说明起效</p>
 <p>networkaddress.cache.negative.ttl</p>
 <p>这个属性是控制如果查询不的DNS  失效的域名缓存时间 </p>
 <p>测试结果  默认可以得到是10S  可以设置 并且成功  说明起效</p>
-<p>#####但是在Android上 Android5.0为例<br>这两个属性并不起效</p>
+<h5 id="但是在Android上-Android5-0为例"><a href="#但是在Android上-Android5-0为例" class="headerlink" title="但是在Android上 Android5.0为例"></a>但是在Android上 Android5.0为例</h5><p>这两个属性并不起效</p>
 <p>以上两个结果  这个并没有什么特别明显的效果</p>
 <p>并且得到的值都是null  设置后时间间隔也并不起效</p>
 <p>翻看源码</p>
@@ -240,34 +238,31 @@
 <p> private static final long TTL_NANOS = 2 * 1000000000L;</p>
 </blockquote>
 <p>从上面代码得出。这里默认的TTL是2S</p>
-<p>####并且 这里的Cache是无法改变的  从这里可以得出 无法改变系统缓存时间来达到目的</p>
-<p>之后 对比ApacheHttpClient 发现  Android其实阉割了原版的HttpClient  去掉了之前的部分功能  使其更能适应移动设备的网络请求<br>但同时其中一些类是新版本httpcore已经抛弃了的</p>
+<h4 id="并且-这里的Cache是无法改变的-从这里可以得出-无法改变系统缓存时间来达到目的"><a href="#并且-这里的Cache是无法改变的-从这里可以得出-无法改变系统缓存时间来达到目的" class="headerlink" title="并且 这里的Cache是无法改变的  从这里可以得出 无法改变系统缓存时间来达到目的"></a>并且 这里的Cache是无法改变的  从这里可以得出 无法改变系统缓存时间来达到目的</h4><p>之后 对比ApacheHttpClient 发现  Android其实阉割了原版的HttpClient  去掉了之前的部分功能  使其更能适应移动设备的网络请求<br>但同时其中一些类是新版本httpcore已经抛弃了的</p>
 <p>其实是Apache的HttpClient和HttpCore部分有用代码的合集放入进去的</p>
 <p>研究源码发现  httpclient4.3版本可以自定义DNS但是android版本的httpclient4.0的 所以如果想要自定义DNS需要用新版本的httpclient<br>4.3版本可以重写DnsResolver来使得系统使用自定义配置，但同时你要重写HttpClientConnectionManager </p>
 <p>为了避免网络请求出现问题  这种方式暂时弃用  暂时采用现有比较成熟的请求方式</p>
-<p>######在这个前提下</p>
-<p>最终采用的方式是  在Http请求头里面加入Host参数  这个参数是自己的域名 并且直接用IP去访问 如果不加入Host 直接用IP访问 会被Forbidden<br>但是采用头部加入Host的方式可行</p>
-<p>######这种方式 推测风险是这样的<br>可能会出现网络切换等  使得DNS变化  网络请求无效</p>
+<h6 id="在这个前提下"><a href="#在这个前提下" class="headerlink" title="在这个前提下"></a>在这个前提下</h6><p>最终采用的方式是  在Http请求头里面加入Host参数  这个参数是自己的域名 并且直接用IP去访问 如果不加入Host 直接用IP访问 会被Forbidden<br>但是采用头部加入Host的方式可行</p>
+<h6 id="这种方式-推测风险是这样的"><a href="#这种方式-推测风险是这样的" class="headerlink" title="这种方式 推测风险是这样的"></a>这种方式 推测风险是这样的</h6><p>可能会出现网络切换等  使得DNS变化  网络请求无效</p>
 <p>以ews.500.com为例</p>
 <p>切换代理为美国IP  拿到的DNS为61.140.14.19</p>
 <p>本地IP  拿到的DNS为 113.105.144.42</p>
 <p>经测试两个IP在有HOST的情况下都可以直接访问 但在本地IP访问美国DNS的时候 速度可能不是特别快 但速度依旧快于直接访问域名  除非出现DNS缓存服务挂了的情况下 否则一般不会出现问题</p>
 <p>测试数据如下：</p>
-<p>######以50次测试为例：  </p>
-<p>域名的情况：平均为85ms左右 并且有四次左右的链接超时（可能跟本地网速有关 忽略）</p>
+<h6 id="以50次测试为例："><a href="#以50次测试为例：" class="headerlink" title="以50次测试为例："></a>以50次测试为例：</h6><p>域名的情况：平均为85ms左右 并且有四次左右的链接超时（可能跟本地网速有关 忽略）</p>
 <p>本地访问本地拿到的DNS  平局为35m左右</p>
 <p>本地访问拿到的美国DNS  平均为50ms左右</p>
-<p>###测试证明：采用Host头的方式 可行，并且本地采用这样的策略</p>
-<p>每次网络请求前，如果本地没有缓存DNS，先去请求DNS</p>
+<h3 id="测试证明：采用Host头的方式-可行，并且本地采用这样的策略"><a href="#测试证明：采用Host头的方式-可行，并且本地采用这样的策略" class="headerlink" title="测试证明：采用Host头的方式 可行，并且本地采用这样的策略"></a>测试证明：采用Host头的方式 可行，并且本地采用这样的策略</h3><p>每次网络请求前，如果本地没有缓存DNS，先去请求DNS</p>
 <pre><code>InetAddress.getAllByName(&quot;ews.500.com&quot;);
 </code></pre><p>如果本地已经缓存了DNS就使用。</p>
 <p>当检测到网络切换的情况下，清空本地缓存DNS，在下次请求时候重新获取</p>
 <p>并且根据用户使用习惯，暂定在的时候10分钟清空一次本地缓存的DNS</p>
 <p>以便能及时拿到最优的DNS</p>
 <p>如果出现超时等网络异常 立马清空DNS缓存</p>
-<p>##Tips：<br>       记得：一定要异步去请求DNS  因为有些情况下很慢   我测试的最长是50多s 而且没异常捕捉<br>    还要记得  拿到后先验证下是否通  否则3g wap方式可能会不通  证明DNS不可用</p>
-<p>##Warning：<br>    这里只是对本地cache的一些查询，主要是为了做DNS加速时候用的，getAllByName得到的DNS IP只是本地的 不能拿来加速 ，稍后会讲一下DNS加速的方案</p>
-
+<h2 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h2><pre><code>   记得：一定要异步去请求DNS  因为有些情况下很慢   我测试的最长是50多s 而且没异常捕捉       
+还要记得  拿到后先验证下是否通  否则3g wap方式可能会不通  证明DNS不可用
+</code></pre><h2 id="Warning："><a href="#Warning：" class="headerlink" title="Warning："></a>Warning：</h2><pre><code>这里只是对本地cache的一些查询，主要是为了做DNS加速时候用的，getAllByName得到的DNS IP只是本地的 不能拿来加速 ，稍后会讲一下DNS加速的方案
+</code></pre>
         
       
     </div>

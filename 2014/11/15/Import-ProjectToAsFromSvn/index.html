@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2014/11/15/Import-ProjectToAsFromSvn/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android Studio 导入Eclipse项目">
-<meta property="og:updated_time" content="2014-12-23T14:25:18.000Z">
+<meta property="og:updated_time" content="2016-03-30T13:44:55.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio从svn上导入Eclipse项目">
 <meta name="twitter:description" content="Android Studio 导入Eclipse项目">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -217,24 +217,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>####应用场景  现在大多数公司都是在svn上面存放项目 而且不少公司都是用Eclipse来开发的 所以目录结构有所不同</p>
-<p>如果不熟悉想熟悉gradle的推荐<a href="http://yeungeek.gitbooks.io/gradle-plugin-user-guide/" target="_blank" rel="external">“gradle插件用户指引中文版”</a></p>
-<p>######下文的android studio 用AS代替</p>
-<p>#####如果你现在是1.0版本的AS  可以忽略本博客，因为1.0版本的导入后直接会拷贝成AS格式的Proect  但是密钥读取这快还是可以参考下</p>
-<a id="more"></a>
+<h4 id="应用场景-现在大多数公司都是在svn上面存放项目-而且不少公司都是用Eclipse来开发的-所以目录结构有所不同"><a href="#应用场景-现在大多数公司都是在svn上面存放项目-而且不少公司都是用Eclipse来开发的-所以目录结构有所不同" class="headerlink" title="应用场景  现在大多数公司都是在svn上面存放项目 而且不少公司都是用Eclipse来开发的 所以目录结构有所不同"></a>应用场景  现在大多数公司都是在svn上面存放项目 而且不少公司都是用Eclipse来开发的 所以目录结构有所不同</h4><p>如果不熟悉想熟悉gradle的推荐<a href="http://yeungeek.gitbooks.io/gradle-plugin-user-guide/" target="_blank" rel="external">“gradle插件用户指引中文版”</a></p>
+<h6 id="下文的android-studio-用AS代替"><a href="#下文的android-studio-用AS代替" class="headerlink" title="下文的android studio 用AS代替"></a>下文的android studio 用AS代替</h6><h5 id="如果你现在是1-0版本的AS-可以忽略本博客，因为1-0版本的导入后直接会拷贝成AS格式的Proect-但是密钥读取这快还是可以参考下"><a href="#如果你现在是1-0版本的AS-可以忽略本博客，因为1-0版本的导入后直接会拷贝成AS格式的Proect-但是密钥读取这快还是可以参考下" class="headerlink" title="如果你现在是1.0版本的AS  可以忽略本博客，因为1.0版本的导入后直接会拷贝成AS格式的Proect  但是密钥读取这快还是可以参考下"></a>如果你现在是1.0版本的AS  可以忽略本博客，因为1.0版本的导入后直接会拷贝成AS格式的Proect  但是密钥读取这快还是可以参考下</h5><a id="more"></a>
 <p>首先 New一个Project  </p>
 <ul>
 <li>这里普及一下 android Studio里的Project类似于Eclipse里的 workspace 里面的moudle类似Eclipse里的Project </li>
 </ul>
-<p>####Project里面的build.gradle文件主要是定义了repositories 和 gradle的dependencies 可以大致看下</p>
-<ul>
+<h4 id="Project里面的build-gradle文件主要是定义了repositories-和-gradle的dependencies-可以大致看下"><a href="#Project里面的build-gradle文件主要是定义了repositories-和-gradle的dependencies-可以大致看下" class="headerlink" title="Project里面的build.gradle文件主要是定义了repositories 和 gradle的dependencies 可以大致看下"></a>Project里面的build.gradle文件主要是定义了repositories 和 gradle的dependencies 可以大致看下</h4><ul>
 <li>然后 VCS——CheckOut Form Verson Control SVN<br>Subversion 然后输入SVN地址 选择项目<br>然后 选择Checkout然后选择呢自己的Project下面 然后选择Upgrade<br>Automtically</li>
 </ul>
 <ul>
 <li>然后选择gradle构建 里面会为每个svn上的 project生成 .iml文件<br>这个文件主要是为了对module的描述  未深究过 例如导入的项目名字为app,就会生成一个app.iml同时会为app生成一个build.gradle</li>
 </ul>
 <p>这时候 你需要在AS的Project里面的bulid的settings.gradle里面  include你的moudle  例如：include ‘:app’（lib也要添加）</p>
-<p>#####重点来了  重点是你需要在自己app下面的build.gradle里面定义你的sourceSets<br>因为 gradle遵循约定优于配置的原则  默认的目录结构跟maven类似  所以你要配置成适用的结构<br>如:</p>
+<h5 id="重点来了-重点是你需要在自己app下面的build-gradle里面定义你的sourceSets"><a href="#重点来了-重点是你需要在自己app下面的build-gradle里面定义你的sourceSets" class="headerlink" title="重点来了  重点是你需要在自己app下面的build.gradle里面定义你的sourceSets"></a>重点来了  重点是你需要在自己app下面的build.gradle里面定义你的sourceSets</h5><p>因为 gradle遵循约定优于配置的原则  默认的目录结构跟maven类似  所以你要配置成适用的结构<br>如:</p>
 <pre><code>sourceSets {
     main {
         manifest.srcFile &apos;AndroidManifest.xml&apos;

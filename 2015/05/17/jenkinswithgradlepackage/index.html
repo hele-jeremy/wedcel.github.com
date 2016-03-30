@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://wedcel.com/../../../../../images/gradlebuild.jpg">
 <meta property="og:image" content="http://wedcel.com/../../../../../images/apk.jpg">
 <meta property="og:image" content="http://wedcel.com/../../../../../images/buildok.jpg">
-<meta property="og:updated_time" content="2015-05-17T14:39:37.974Z">
+<meta property="og:updated_time" content="2016-03-30T13:40:58.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins和gradle打包 ">
 <meta name="twitter:description" content="jenkins gradle">
@@ -45,7 +45,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -128,7 +128,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -151,7 +151,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -226,23 +226,22 @@
       
         <hr>
 <p>初衷：<br>对于中小型公司来说，需要打包给测试让，但是每次打包都需要研发人员去打，这样会导致一些问题的出现，比如开发人员没有时间，测试人员就需要等待，浪费时间。</p>
-<p>##Jenkins简介##</p>
-<p>Jenkins 是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。Jenkins 的前身是Hudson是一个可扩展的持续集成引擎。</p>
+<h2 id="Jenkins简介"><a href="#Jenkins简介" class="headerlink" title="Jenkins简介"></a>Jenkins简介</h2><p>Jenkins 是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。Jenkins 的前身是Hudson是一个可扩展的持续集成引擎。</p>
 <p><a href="http://my.oschina.net/uboluo/blog/157483" target="_blank" rel="external">jenkins和gradle详细简介看这里</a></p>
 <p>重点是开源-。-,所以可以很放心的使用。</p>
 <p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">jenkins下载地址</a></p>
 <p>gradle的配置这里不在赘述</p>
 <p>jenkins的简单配置这里也不在赘述，这里重点说下遇到的问题</p>
 <a id="more"></a>
-<p>####说下系统配置里面的两个配置####<br>jdk配置：<br><img src="../../../../../images/jdk.jpg" alt="jdk"></p>
+<h4 id="说下系统配置里面的两个配置"><a href="#说下系统配置里面的两个配置" class="headerlink" title="说下系统配置里面的两个配置"></a>说下系统配置里面的两个配置</h4><p>jdk配置：<br><img src="../../../../../images/jdk.jpg" alt="jdk"></p>
 <p>gradle配置：<br><img src="../../../../../images/gradle.jpg" alt="gradle"></p>
-<p>####用户权限####<br>这里说下， jenkins注册完后的用户是没有任何权限的，所以管理员需要先有权限再去注册个同名账户，其余的账户需要先注册后再去开通相应权限。</p>
+<h4 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h4><p>这里说下， jenkins注册完后的用户是没有任何权限的，所以管理员需要先有权限再去注册个同名账户，其余的账户需要先注册后再去开通相应权限。</p>
 <p>普通给测试人员的权限，就会简单些，例如：<br><img src="../../../../../images/role1.jpg" alt="权限"></p>
 <p><img src="../../../../../images/role2.jpg" alt="权限"></p>
 <p>这样普通人员就只有构建权限没有管理权限了。</p>
-<p>####build配置####<br>新建job之后，配置build脚本如下<br><img src="../../../../../images/gradlebuild.jpg" alt="gradle build"></p>
-<p>####构建完成后配置####<br>构建完成后，apk包需要保存下，配置如下<br><img src="../../../../../images/apk.jpg" alt="apk"></p>
-<p>####构建成功####<br>构建完成的图<br><img src="../../../../../images/buildok.jpg" alt="buildok"></p>
+<h4 id="build配置"><a href="#build配置" class="headerlink" title="build配置"></a>build配置</h4><p>新建job之后，配置build脚本如下<br><img src="../../../../../images/gradlebuild.jpg" alt="gradle build"></p>
+<h4 id="构建完成后配置"><a href="#构建完成后配置" class="headerlink" title="构建完成后配置"></a>构建完成后配置</h4><p>构建完成后，apk包需要保存下，配置如下<br><img src="../../../../../images/apk.jpg" alt="apk"></p>
+<h4 id="构建成功"><a href="#构建成功" class="headerlink" title="构建成功"></a>构建成功</h4><p>构建完成的图<br><img src="../../../../../images/buildok.jpg" alt="buildok"></p>
 <p>可以直接点击右侧的apk包下载</p>
 
         

@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://wedcel.com/2014/12/21/Android-Event/index.html">
 <meta property="og:site_name" content="Wedcel's blogs">
 <meta property="og:description" content="Android 事件分发">
-<meta property="og:updated_time" content="2014-12-21T11:48:34.000Z">
+<meta property="og:updated_time" content="2016-03-30T13:44:44.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对Android Activity ViewGroup View的事件的分发测试">
 <meta name="twitter:description" content="Android 事件分发">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">关注移动互联网最新技术</p>
+		<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 		
 
 		
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是一名移动互联网从业者，关注移动互联网发展，关注产品创新，现从事Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，主要负责彩票客户端相关开发，目前主要研究Android移动客户端，Android底层框架，服务器编写。</div>
+					<div id="js-aboutme">Android客户端开发工程师，目前就职于深圳市易迅天空网络技术有限公司500.com(500彩票网)，负责彩票客户端研发相关工作，目前主要研究方向有Android客户端、Android框架、Android源码、Android App性能优化分析等。</div>
 				</section>
 				
 			</div>
@@ -143,7 +143,7 @@
 				</hgroup>
 			</div>
 			
-			<p class="header-subtitle">关注移动互联网最新技术</p>
+			<p class="header-subtitle">一个人行走的范围，就是他的世界。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -217,8 +217,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>###对事件的分发支持如下：</p>
-<p>#######这里的View是只textview类似的不能有子View的View，不是最大的父类View.<br>重写textview的时候  可以继承到dispatchTouchEvent  这是从View里面拿到的 </p>
+<h3 id="对事件的分发支持如下："><a href="#对事件的分发支持如下：" class="headerlink" title="对事件的分发支持如下："></a>对事件的分发支持如下：</h3><p>####### 这里的View是只textview类似的不能有子View的View，不是最大的父类View.<br>重写textview的时候  可以继承到dispatchTouchEvent  这是从View里面拿到的 </p>
 <p>textview类似的view里面没有这个方法 也就不会处理 但你继承了  就会处理</p>
 <p>ACTION_CANCEL的执行 只是在你滑动超过了这个控件之外的时候 才会触发</p>
 <p>每个轮流执行下去的都会执行ACTION_DOWN  但是只有最后处理事件的地方或者返回true的地方才会执行move和up 事件</p>
@@ -227,8 +226,7 @@
 
 <a id="more"></a>
 <p>顺序是Activity——&gt;ViewGroup——&gt;View</p>
-<p>####如果都返回Super默认值 执行的逻辑是</p>
-<p>#####Activity onTouchEvent 返回true 返回false 他们都一样<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="如果都返回Super默认值-执行的逻辑是"><a href="#如果都返回Super默认值-执行的逻辑是" class="headerlink" title="如果都返回Super默认值 执行的逻辑是"></a>如果都返回Super默认值 执行的逻辑是</h4><h5 id="Activity-onTouchEvent-返回true-返回false-他们都一样"><a href="#Activity-onTouchEvent-返回true-返回false-他们都一样" class="headerlink" title="Activity onTouchEvent 返回true 返回false 他们都一样"></a>Activity onTouchEvent 返回true 返回false 他们都一样</h5><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
 <p>View dispatchTouchEvent ACTION_DOWN</p>
@@ -237,17 +235,15 @@
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……<br>（dispatchTouchEvent和onTouchEvent的ACTION_MOVE 会顺序一起执行多次）</p>
+<h6 id="……"><a href="#……" class="headerlink" title="……"></a>……</h6><p>（dispatchTouchEvent和onTouchEvent的ACTION_MOVE 会顺序一起执行多次）</p>
 <p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP </p>
-<p>####Activity dispatchTouchEvent 返回true 或者false 其他都默认</p>
-<p>#######dispatchTouchEvent这里的 true 或者false是一样的结果  都会拦截 只有默认的不会拦截 </p>
+<h4 id="Activity-dispatchTouchEvent-返回true-或者false-其他都默认"><a href="#Activity-dispatchTouchEvent-返回true-或者false-其他都默认" class="headerlink" title="Activity dispatchTouchEvent 返回true 或者false 其他都默认"></a>Activity dispatchTouchEvent 返回true 或者false 其他都默认</h4><p>####### dispatchTouchEvent这里的 true 或者false是一样的结果  都会拦截 只有默认的不会拦截 </p>
 <p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>一个down一个up中间全是move 别的都不会执行</p>
-<p>####View dispatchTouchEvent 返回true  其他都默认</p>
-<p>####所有的onTouchEvent 都不会执行 其余的全部执行<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="View-dispatchTouchEvent-返回true-其他都默认"><a href="#View-dispatchTouchEvent-返回true-其他都默认" class="headerlink" title="View dispatchTouchEvent 返回true  其他都默认"></a>View dispatchTouchEvent 返回true  其他都默认</h4><h4 id="所有的onTouchEvent-都不会执行-其余的全部执行"><a href="#所有的onTouchEvent-都不会执行-其余的全部执行" class="headerlink" title="所有的onTouchEvent 都不会执行 其余的全部执行"></a>所有的onTouchEvent 都不会执行 其余的全部执行</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
 <p>View dispatchTouchEvent ACTION_DOWN</p>
@@ -259,10 +255,7 @@
 <p>ViewGroup dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
 <p>View dispatchTouchEvent ACTION_UP</p>
-<p>####View dispatchTouchEvent 返回false 其他都默认</p>
-<p>####这时候  view的onTouchEvent 不会执行 其余的down都会执行</p>
-<p>####最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP</p>
-<p>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="View-dispatchTouchEvent-返回false-其他都默认"><a href="#View-dispatchTouchEvent-返回false-其他都默认" class="headerlink" title="View dispatchTouchEvent 返回false 其他都默认"></a>View dispatchTouchEvent 返回false 其他都默认</h4><h4 id="这时候-view的onTouchEvent-不会执行-其余的down都会执行"><a href="#这时候-view的onTouchEvent-不会执行-其余的down都会执行" class="headerlink" title="这时候  view的onTouchEvent 不会执行 其余的down都会执行"></a>这时候  view的onTouchEvent 不会执行 其余的down都会执行</h4><h4 id="最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION-MOVE和最终的ACTION-UP"><a href="#最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION-MOVE和最终的ACTION-UP" class="headerlink" title="最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP"></a>最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
 <p>View dispatchTouchEvent ACTION_DOWN</p>
@@ -270,10 +263,9 @@
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……<br>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-1"><a href="#……-1" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
-<p>####View onTouchEvent 返回true 其他都默认</p>
-<h4 id="Activity和ViewGroup的onTouchEvent不会执行-别的全部动作都执行"><a href="#Activity和ViewGroup的onTouchEvent不会执行-别的全部动作都执行" class="headerlink" title="Activity和ViewGroup的onTouchEvent不会执行 别的全部动作都执行"></a>Activity和ViewGroup的onTouchEvent不会执行 别的全部动作都执行</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="View-onTouchEvent-返回true-其他都默认"><a href="#View-onTouchEvent-返回true-其他都默认" class="headerlink" title="View onTouchEvent 返回true 其他都默认"></a>View onTouchEvent 返回true 其他都默认</h4><h4 id="Activity和ViewGroup的onTouchEvent不会执行-别的全部动作都执行"><a href="#Activity和ViewGroup的onTouchEvent不会执行-别的全部动作都执行" class="headerlink" title="Activity和ViewGroup的onTouchEvent不会执行 别的全部动作都执行"></a>Activity和ViewGroup的onTouchEvent不会执行 别的全部动作都执行</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
 <p>View dispatchTouchEvent ACTION_DOWN</p>
@@ -283,13 +275,12 @@
 <p>ViewGroup onInterceptTouchEvent ACTION_MOVE</p>
 <p>View dispatchTouchEvent ACTION_MOVE</p>
 <p>View onTouchEvent ACTION_MOVE</p>
-<p>######……<br>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-2"><a href="#……-2" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_UP</p>
 <p>View dispatchTouchEvent ACTION_UP</p>
 <p>View onTouchEvent ACTION_UP</p>
-<p>####View onTouchEvent 返回false 其他都默认  所有的down都会执行</p>
-<p>####最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="View-onTouchEvent-返回false-其他都默认-所有的down都会执行"><a href="#View-onTouchEvent-返回false-其他都默认-所有的down都会执行" class="headerlink" title="View onTouchEvent 返回false 其他都默认  所有的down都会执行"></a>View onTouchEvent 返回false 其他都默认  所有的down都会执行</h4><h4 id="最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION-MOVE和最终的ACTION-UP-1"><a href="#最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION-MOVE和最终的ACTION-UP-1" class="headerlink" title="最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP"></a>最终由Activity的dispatchTouchEvent和onTouchEvent执行ACTION_MOVE和最终的ACTION_UP</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent ACTION_DOWN</p>
 <p>View dispatchTouchEvent ACTION_DOWN</p>
@@ -299,41 +290,31 @@
 <hr>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……<br>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-3"><a href="#……-3" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
-<p>####ViewGroup dispatchTouchEvent 返回true  其他都默认</p>
-<p>####这时候只执行了Activity和ViewGroup的dispatchTouchEvent方法<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-dispatchTouchEvent-返回true-其他都默认"><a href="#ViewGroup-dispatchTouchEvent-返回true-其他都默认" class="headerlink" title="ViewGroup dispatchTouchEvent 返回true  其他都默认"></a>ViewGroup dispatchTouchEvent 返回true  其他都默认</h4><h4 id="这时候只执行了Activity和ViewGroup的dispatchTouchEvent方法"><a href="#这时候只执行了Activity和ViewGroup的dispatchTouchEvent方法" class="headerlink" title="这时候只执行了Activity和ViewGroup的dispatchTouchEvent方法"></a>这时候只执行了Activity和ViewGroup的dispatchTouchEvent方法</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-4"><a href="#……-4" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup dispatchTouchEvent ACTION_UP</p>
-<p>####ViewGroup dispatchTouchEvent 返回false  其他都默认</p>
-<p>####这时候 执行了Activity和ViewGroup的dispatchTouchEvent</p>
-<p>####的ACTION_DOWN方法 之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-dispatchTouchEvent-返回false-其他都默认"><a href="#ViewGroup-dispatchTouchEvent-返回false-其他都默认" class="headerlink" title="ViewGroup dispatchTouchEvent 返回false  其他都默认"></a>ViewGroup dispatchTouchEvent 返回false  其他都默认</h4><h4 id="这时候-执行了Activity和ViewGroup的dispatchTouchEvent"><a href="#这时候-执行了Activity和ViewGroup的dispatchTouchEvent" class="headerlink" title="这时候 执行了Activity和ViewGroup的dispatchTouchEvent"></a>这时候 执行了Activity和ViewGroup的dispatchTouchEvent</h4><h4 id="的ACTION-DOWN方法-之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底"><a href="#的ACTION-DOWN方法-之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底" class="headerlink" title="的ACTION_DOWN方法 之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底"></a>的ACTION_DOWN方法 之后由还有activity的dispatchTouchEvent和onTouchEvent方法执行到底</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-5"><a href="#……-5" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
-<p>####ViewGroup onInterceptTouchEvent 返回true  其他都默认</p>
-<p>####这时候 执行了Activity和ViewGroup的所有ACTION_DOWN方法</p>
-<p>####之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-onInterceptTouchEvent-返回true-其他都默认"><a href="#ViewGroup-onInterceptTouchEvent-返回true-其他都默认" class="headerlink" title="ViewGroup onInterceptTouchEvent 返回true  其他都默认"></a>ViewGroup onInterceptTouchEvent 返回true  其他都默认</h4><h4 id="这时候-执行了Activity和ViewGroup的所有ACTION-DOWN方法"><a href="#这时候-执行了Activity和ViewGroup的所有ACTION-DOWN方法" class="headerlink" title="这时候 执行了Activity和ViewGroup的所有ACTION_DOWN方法"></a>这时候 执行了Activity和ViewGroup的所有ACTION_DOWN方法</h4><h4 id="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底"><a href="#之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底" class="headerlink" title="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底"></a>之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent  ACTION_DOWN</p>
 <p>ViewGroup onTouchEvent  ACTION_DOWN</p>
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-6"><a href="#……-6" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
-<p>####ViewGroup onInterceptTouchEvent 返回false  其他都默认</p>
-<p>####这时候 执行了所有ACTION_DOWN方法</p>
-<p>####之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-onInterceptTouchEvent-返回false-其他都默认"><a href="#ViewGroup-onInterceptTouchEvent-返回false-其他都默认" class="headerlink" title="ViewGroup onInterceptTouchEvent 返回false  其他都默认"></a>ViewGroup onInterceptTouchEvent 返回false  其他都默认</h4><h4 id="这时候-执行了所有ACTION-DOWN方法"><a href="#这时候-执行了所有ACTION-DOWN方法" class="headerlink" title="这时候 执行了所有ACTION_DOWN方法"></a>这时候 执行了所有ACTION_DOWN方法</h4><h4 id="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底-1"><a href="#之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底-1" class="headerlink" title="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底"></a>之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent  ACTION_DOWN</p>
 <p>View onInterceptTouchEvent  ACTION_DOWN</p>
@@ -342,11 +323,9 @@
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-7"><a href="#……-7" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
-<p>####ViewGroup onTouchEvent 返回true  其他都默认</p>
-<p>####这时候 activity的ACTION_DOWN不执行  执行了其他的所有ACTION_DOWN方法<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-onTouchEvent-返回true-其他都默认"><a href="#ViewGroup-onTouchEvent-返回true-其他都默认" class="headerlink" title="ViewGroup onTouchEvent 返回true  其他都默认"></a>ViewGroup onTouchEvent 返回true  其他都默认</h4><h4 id="这时候-activity的ACTION-DOWN不执行-执行了其他的所有ACTION-DOWN方法"><a href="#这时候-activity的ACTION-DOWN不执行-执行了其他的所有ACTION-DOWN方法" class="headerlink" title="这时候 activity的ACTION_DOWN不执行  执行了其他的所有ACTION_DOWN方法"></a>这时候 activity的ACTION_DOWN不执行  执行了其他的所有ACTION_DOWN方法</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent  ACTION_DOWN</p>
 <p>View onInterceptTouchEvent  ACTION_DOWN</p>
@@ -355,13 +334,10 @@
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>ViewGroup dispatchTouchEvent ACTION_MOVE</p>
 <p>ViewGroup onTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-8"><a href="#……-8" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup dispatchTouchEvent ACTION_UP</p>
 <p>ViewGroup onTouchEvent ACTION_UP</p>
-<p>####ViewGroup onTouchEvent 返回false  其他都默认</p>
-<p>####这时候 执行了所有ACTION_DOWN方法  </p>
-<p>####之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底<br>Activity dispatchTouchEvent ACTION_DOWN</p>
+<h4 id="ViewGroup-onTouchEvent-返回false-其他都默认"><a href="#ViewGroup-onTouchEvent-返回false-其他都默认" class="headerlink" title="ViewGroup onTouchEvent 返回false  其他都默认"></a>ViewGroup onTouchEvent 返回false  其他都默认</h4><h4 id="这时候-执行了所有ACTION-DOWN方法-1"><a href="#这时候-执行了所有ACTION-DOWN方法-1" class="headerlink" title="这时候 执行了所有ACTION_DOWN方法"></a>这时候 执行了所有ACTION_DOWN方法</h4><h4 id="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底-2"><a href="#之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底-2" class="headerlink" title="之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底"></a>之后还由activity的dispatchTouchEvent和onTouchEvent方法执行到底</h4><p>Activity dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup dispatchTouchEvent ACTION_DOWN</p>
 <p>ViewGroup onInterceptTouchEvent  ACTION_DOWN</p>
 <p>View onInterceptTouchEvent  ACTION_DOWN</p>
@@ -370,8 +346,7 @@
 <p>Activity onTouchEvent ACTION_DOWN</p>
 <p>Activity dispatchTouchEvent ACTION_MOVE</p>
 <p>Activity onTouchEvent ACTION_MOVE</p>
-<p>######……</p>
-<p>Activity dispatchTouchEvent ACTION_UP</p>
+<h6 id="……-9"><a href="#……-9" class="headerlink" title="……"></a>……</h6><p>Activity dispatchTouchEvent ACTION_UP</p>
 <p>Activity onTouchEvent ACTION_UP</p>
 
         
